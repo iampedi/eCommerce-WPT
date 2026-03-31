@@ -1,0 +1,17 @@
+{
+  "name": "pediland-theme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "flowbite:copy": "shx mkdir -p ./assets/js/vendor && shx cp ./node_modules/flowbite/dist/flowbite.min.js ./assets/js/vendor/flowbite.min.js",
+    "dev": "pnpm run flowbite:copy && tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css --watch",
+    "build": "pnpm run flowbite:copy && tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "flowbite": "^2.5.2",
+    "postcss": "^8.5.6",
+    "shx": "^0.4.0",
+    "tailwindcss": "^3.4.17"
+  }
+}
