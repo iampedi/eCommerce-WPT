@@ -12,9 +12,11 @@ if (! defined('ABSPATH')) {
 
 $pediland_includes = [
     '/inc/helpers.php',
+    '/inc/form-classes.php',
     '/inc/setup.php',
     '/inc/assets.php',
     '/inc/cleanup.php',
+    '/inc/woocommerce.php',
 ];
 
 foreach ($pediland_includes as $pediland_file) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Product card template.
  *
@@ -13,29 +14,37 @@ if (! $product || ! $product->is_visible()) {
     return;
 }
 ?>
-<li <?php wc_product_class('group'); ?>>
-    <article class="h-full overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
-        <a href="<?php the_permalink(); ?>" class="relative block overflow-hidden">
-            <?php if ($product->is_on_sale()) : ?>
-                <span class="onsale absolute left-3 top-3 z-10 rounded bg-slate-900 px-2 py-1 text-xs font-semibold text-white"><?php esc_html_e('Sale!', 'woocommerce'); ?></span>
-            <?php endif; ?>
-            <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail', ['class' => 'h-56 w-full object-cover object-center']); ?>
-        </a>
+<article class="flex h-full flex-col overflow-hidden group border border-transparent hover:border-primary duration-300">
+    <a href="<?php the_permalink(); ?>" class="relative bg-black">
+        <?php if ($product->is_on_sale()) : ?>
+            <span class="onsale absolute left-3 top-3 z-10 rounded-md bg-primary px-2 py-1 text-xs font-semibold text-black"><?php esc_html_e('Sale!', 'woocommerce'); ?></span>
+        <?php endif; ?>
+        <?php if (! $product->is_in_stock()) : ?>
+            <span class="absolute right-3 top-3 z-10 rounded-md border border-slate-700 bg-slate-950 px-2 py-1 text-xs font-medium text-slate-300"><?php esc_html_e('Out of stock', 'woocommerce'); ?></span>
+        <?php endif; ?>
+        <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail', ['class' => 'aspect-square']); ?>
+    </a>
 
-        <div class="space-y-3 p-4">
-            <h2 class="text-base font-semibold text-slate-900">
-                <a href="<?php the_permalink(); ?>" class="hover:text-blue-700"><?php the_title(); ?></a>
+    <div class="flex flex-col p-4">
+        <div class="mb-4 text-center">
+            <?php $sku = $product->get_sku(); ?>
+            <h2 class="text-lg font-light text-slate-100">
+                <a href="<?php the_permalink(); ?>" class="transition hover:text-primary uppercase">
+                    <?php echo esc_html($sku ? sprintf(__('SKU: %s', 'pediland'), $sku) : __('SKU: N/A', 'pediland')); ?>
+                </a>
             </h2>
 
-            <?php if ($price_html = $product->get_price_html()) : ?>
-                <p class="text-lg font-semibold text-slate-900"><?php echo wp_kses_post($price_html); ?></p>
+            <?php if (wc_review_ratings_enabled()) : ?>
+                <?php $rating_html = wc_get_rating_html($product->get_average_rating()); ?>
+                <?php if ($rating_html) : ?>
+                    <div class="text-sm text-amber-400"><?php echo wp_kses_post($rating_html); ?></div>
+                <?php endif; ?>
             <?php endif; ?>
 
-            <?php
-            woocommerce_template_loop_add_to_cart([
-                'class' => 'button mt-2 inline-flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300',
-            ]);
-            ?>
+            <?php if ($price_html = $product->get_price_html()) : ?>
+                <p class="text-lg font-semibold text-secondary"><?php echo wp_kses_post($price_html); ?></p>
+            <?php endif; ?>
         </div>
-    </article>
-</li>
+
+    </div>
+</article>

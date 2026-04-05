@@ -27,10 +27,10 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                 <?php do_action('woocommerce_login_form_start'); ?>
 
                 <div>
-                    <label class="mb-2 block text-sm font-medium text-slate-900" for="username"><?php esc_html_e('Username or email address', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
+                    <label class="<?php echo esc_attr(pediland_form_class('label')); ?>" for="username"><?php esc_html_e('Username or email address', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
                     <input
                         type="text"
-                        class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500"
+                        class="<?php echo esc_attr(pediland_form_class('input')); ?>"
                         name="username"
                         id="username"
                         autocomplete="username"
@@ -38,9 +38,9 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                 </div>
 
                 <div>
-                    <label class="mb-2 block text-sm font-medium text-slate-900" for="password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
+                    <label class="<?php echo esc_attr(pediland_form_class('label')); ?>" for="password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
                     <input
-                        class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500"
+                        class="<?php echo esc_attr(pediland_form_class('input')); ?>"
                         type="password"
                         name="password"
                         id="password"
@@ -51,7 +51,7 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
 
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <label class="inline-flex items-center gap-2 text-sm text-slate-700">
-                        <input class="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500" name="rememberme" type="checkbox" id="rememberme" value="forever" />
+                        <input class="<?php echo esc_attr(pediland_form_class('checkbox')); ?>" name="rememberme" type="checkbox" id="rememberme" value="forever" />
                         <span><?php esc_html_e('Remember me', 'woocommerce'); ?></span>
                     </label>
 
@@ -59,7 +59,7 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                 </div>
 
                 <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
-                <button type="submit" class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300" name="login" value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
+                <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-primary-full')); ?>" name="login" value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
 
                 <?php do_action('woocommerce_login_form_end'); ?>
             </form>
@@ -74,10 +74,10 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
 
                     <?php if ($username_required) : ?>
                         <div>
-                            <label class="mb-2 block text-sm font-medium text-slate-900" for="reg_username"><?php esc_html_e('Username', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
+                            <label class="<?php echo esc_attr(pediland_form_class('label')); ?>" for="reg_username"><?php esc_html_e('Username', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
                             <input
                                 type="text"
-                                class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500"
+                                class="<?php echo esc_attr(pediland_form_class('input')); ?>"
                                 name="username"
                                 id="reg_username"
                                 autocomplete="username"
@@ -86,10 +86,10 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                     <?php endif; ?>
 
                     <div>
-                        <label class="mb-2 block text-sm font-medium text-slate-900" for="reg_email"><?php esc_html_e('Email address', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
+                        <label class="<?php echo esc_attr(pediland_form_class('label')); ?>" for="reg_email"><?php esc_html_e('Email address', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
                         <input
                             type="email"
-                            class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500"
+                            class="<?php echo esc_attr(pediland_form_class('input')); ?>"
                             name="email"
                             id="reg_email"
                             autocomplete="email"
@@ -98,10 +98,10 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
 
                     <?php if ($password_required) : ?>
                         <div>
-                            <label class="mb-2 block text-sm font-medium text-slate-900" for="reg_password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
+                            <label class="<?php echo esc_attr(pediland_form_class('label')); ?>" for="reg_password"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
                             <input
                                 type="password"
-                                class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500"
+                                class="<?php echo esc_attr(pediland_form_class('input')); ?>"
                                 name="password"
                                 id="reg_password"
                                 autocomplete="new-password" />
@@ -113,7 +113,7 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                     <?php do_action('woocommerce_register_form'); ?>
 
                     <?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-                    <button type="submit" class="w-full rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-300" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><?php esc_html_e('Register', 'woocommerce'); ?></button>
+                    <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-dark-full')); ?>" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><?php esc_html_e('Register', 'woocommerce'); ?></button>
 
                     <?php do_action('woocommerce_register_form_end'); ?>
                 </form>

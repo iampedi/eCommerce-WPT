@@ -20,6 +20,6 @@ if (! $description) {
     return;
 }
 ?>
-<div class="woocommerce-products-header__description mt-2 text-sm text-slate-600">
+<div class="woocommerce-products-header__description mt-2 max-w-3xl text-sm leading-7 text-slate-300">
     <?php echo wp_kses_post($description); ?>
 </div>

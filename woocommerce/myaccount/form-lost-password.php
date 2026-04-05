@@ -18,8 +18,8 @@ do_action('woocommerce_before_lost_password_form');
 
         <form method="post" class="woocommerce-ResetPassword lost_reset_password space-y-5">
             <div>
-                <label class="mb-2 block text-sm font-medium text-slate-900" for="user_login"><?php esc_html_e('Username or email', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
-                <input class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500" type="text" name="user_login" id="user_login" autocomplete="username" />
+                <label class="<?php echo esc_attr(pediland_form_class('label')); ?>" for="user_login"><?php esc_html_e('Username or email', 'woocommerce'); ?>&nbsp;<span class="text-red-600">*</span></label>
+                <input class="<?php echo esc_attr(pediland_form_class('input')); ?>" type="text" name="user_login" id="user_login" autocomplete="username" />
             </div>
 
             <?php do_action('woocommerce_lostpassword_form'); ?>
@@ -27,7 +27,7 @@ do_action('woocommerce_before_lost_password_form');
             <input type="hidden" name="wc_reset_password" value="true" />
             <?php wp_nonce_field('lost_password', 'woocommerce-lost-password-nonce'); ?>
 
-            <button type="submit" class="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300" value="<?php esc_attr_e('Reset password', 'woocommerce'); ?>"><?php esc_html_e('Reset password', 'woocommerce'); ?></button>
+            <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-primary-full')); ?>" value="<?php esc_attr_e('Reset password', 'woocommerce'); ?>"><?php esc_html_e('Reset password', 'woocommerce'); ?></button>
         </form>
     </div>
 </div>

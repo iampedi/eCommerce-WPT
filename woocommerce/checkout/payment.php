@@ -10,6 +10,9 @@ defined('ABSPATH') || exit;
 if (! wp_doing_ajax()) {
     do_action('woocommerce_review_order_before_payment');
 }
+
+$update_totals_classes = pediland_form_class('button-outline', 'mt-3');
+$place_order_classes = pediland_form_class('button-primary-full', 'button alt');
 ?>
 <div id="payment" class="woocommerce-checkout-payment mt-6 space-y-4">
     <?php if (WC()->cart && WC()->cart->needs_payment()) : ?>
@@ -37,14 +40,14 @@ if (! wp_doing_ajax()) {
                 '</em>'
             );
             ?>
-            <br /><button type="submit" class="mt-3 inline-flex h-10 items-center justify-center rounded-lg border border-slate-300 px-4 text-sm font-medium text-slate-700 hover:bg-slate-100" name="woocommerce_checkout_update_totals" value="<?php esc_attr_e('Update totals', 'woocommerce'); ?>"><?php esc_html_e('Update totals', 'woocommerce'); ?></button>
+            <br /><button type="submit" class="<?php echo esc_attr($update_totals_classes); ?>" name="woocommerce_checkout_update_totals" value="<?php esc_attr_e('Update totals', 'woocommerce'); ?>"><?php esc_html_e('Update totals', 'woocommerce'); ?></button>
         </noscript>
 
         <?php wc_get_template('checkout/terms.php'); ?>
 
         <?php do_action('woocommerce_review_order_before_submit'); ?>
 
-        <?php echo apply_filters('woocommerce_order_button_html', '<button type="submit" class="button alt w-full rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr($order_button_text) . '" data-value="' . esc_attr($order_button_text) . '">' . esc_html($order_button_text) . '</button>'); ?>
+        <?php echo apply_filters('woocommerce_order_button_html', '<button type="submit" class="' . esc_attr($place_order_classes) . '" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr($order_button_text) . '" data-value="' . esc_attr($order_button_text) . '">' . esc_html($order_button_text) . '</button>'); ?>
 
         <?php do_action('woocommerce_review_order_after_submit'); ?>
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Shared site footer and document end.
  *
@@ -9,12 +10,15 @@ if (! defined('ABSPATH')) {
     exit;
 }
 ?>
-    <footer class="mt-12 border-t border-slate-200">
-        <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-500">
+<footer class="mt-12">
+    <div class="container">
+        <div class="text-center text-sm text-slate-500 py-6">
             <?php bloginfo('name'); ?>
         </div>
-    </footer>
+    </div>
+</footer>
 </div>
 <?php wp_footer(); ?>
 </body>
+
 </html>

@@ -10,7 +10,16 @@ module.exports = {
   ],
   safelist: ['inline-flex', 'items-center', '!h-12', 'w-auto'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        'primary-soft': 'var(--color-primary-soft)',
+        'secondary-soft': 'var(--color-secondary-soft)',
+        'primary-deep': 'var(--color-primary-deep)',
+        'secondary-deep': 'var(--color-secondary-deep)',
+      },
+    },
   },
   plugins: [require('flowbite/plugin')],
 };

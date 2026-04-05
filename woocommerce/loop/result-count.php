@@ -7,7 +7,7 @@
 
 defined('ABSPATH') || exit;
 ?>
-<p class="woocommerce-result-count text-sm text-slate-600" <?php if (1 === $total) : ?>role="alert"<?php endif; ?>>
+<p class="woocommerce-result-count text-sm text-slate-300" <?php if (1 === $total) : ?>role="alert"<?php endif; ?>>
     <?php
     if (1 === $total) {
         esc_html_e('Showing the single result', 'woocommerce');
