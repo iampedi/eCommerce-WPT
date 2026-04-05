@@ -39,15 +39,8 @@ function pediland_get_product_attribute_value(WC_Product $product, array $keys):
 function pediland_get_composite_product_name(WC_Product $product): string
 {
     $color = pediland_get_product_attribute_value($product, ['pa_color', 'color']);
-    $cut = pediland_get_product_attribute_value($product, ['pa_cut', 'cut', 'pa_shape', 'shape']);
+    $shape = pediland_get_product_attribute_value($product, ['pa_shape', 'shape', 'pa_cut', 'cut']);
     $matrix = pediland_get_product_attribute_value($product, ['pa_matrix', 'matrix']);
 
-    $title = trim('Natural ' . $color . ' Persian Turquoise');
-    $details = trim($cut . ' Cut' . ($matrix !== '' ? ', ' . $matrix : ''));
-
-    if ($details === '') {
-        return $title;
-    }
-
-    return $title . ' – ' . $details;
+    return trim('Natural ' . $color . ' ' . $shape . ' ' . $matrix . ' Persian Turquoise');
 }

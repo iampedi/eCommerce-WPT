@@ -10,6 +10,7 @@
     --color-secondary-soft: oklch(0.8966 0.0311 182.14);
     --color-primary-deep: oklch(0.5418 0.1353 81.11);
     --color-secondary-deep: oklch(0.5066 0.1211 182.14);
+    color-scheme: dark;
   }
 
   body {
@@ -200,5 +201,88 @@
   .single-product .related .products,
   .single-product .up-sells .products {
     @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .pf-range-slider {
+    @apply relative h-5;
+  }
+
+  .pf-range-slider-track {
+    @apply pointer-events-none absolute left-0 right-0 top-1/2 h-1.5 -translate-y-1/2 rounded-lg bg-slate-800;
+  }
+
+  .pf-range-slider-active {
+    @apply pointer-events-none absolute top-1/2 h-1.5 -translate-y-1/2 rounded-lg bg-slate-700;
+  }
+
+  .pf-range-input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+  }
+
+  .pf-range-input:focus {
+    outline: none;
+  }
+
+  .pf-range-input::-webkit-slider-runnable-track {
+    height: 0;
+    background: transparent;
+  }
+
+  .pf-range-input::-moz-range-track {
+    height: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .pf-range-input::-webkit-slider-thumb {
+    pointer-events: auto;
+    height: 1rem !important;
+    width: 1rem !important;
+    border-radius: 9999px;
+    border: 0;
+    background: rgb(28 100 242);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    margin-top: -0.5rem;
+  }
+
+  .pf-range-input::-moz-range-thumb {
+    pointer-events: auto;
+    height: 1rem !important;
+    width: 1rem !important;
+    border-radius: 9999px;
+    border: 0;
+    background: rgb(28 100 242);
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .archive-filters-panel {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+    pointer-events: none;
+    transition:
+      max-height 480ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 280ms ease,
+      transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: max-height, opacity, transform;
+  }
+
+  .archive-filters-panel.is-open {
+    max-height: 1600px;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 }

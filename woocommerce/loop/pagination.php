@@ -16,11 +16,25 @@ if ($total <= 1) {
 }
 
 $base = esc_url_raw(str_replace(999999999, '%#%', remove_query_arg('add-to-cart', get_pagenum_link(999999999, false))));
+$add_args = [];
+
+if (! empty($_GET) && is_array($_GET)) {
+    $raw_args = wp_unslash($_GET);
+    unset($raw_args['paged'], $raw_args['add-to-cart']);
+
+    foreach ($raw_args as $key => $value) {
+        if (is_array($value)) {
+            $add_args[$key] = array_map('sanitize_text_field', $value);
+        } else {
+            $add_args[$key] = sanitize_text_field((string) $value);
+        }
+    }
+}
 
 $links = paginate_links([
     'base'      => $base,
     'format'    => '',
-    'add_args'  => false,
+    'add_args'  => $add_args,
     'current'   => max(1, $current_page),
     'total'     => $total,
     'prev_text' => is_rtl() ? '&rarr;' : '&larr;',

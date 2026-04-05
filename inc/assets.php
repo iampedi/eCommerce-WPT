@@ -11,6 +11,25 @@ if (! defined('ABSPATH')) {
 
 function pediland_enqueue_assets(): void
 {
+    $phosphor_version = '2.1.1';
+    $phosphor_styles = [
+        'regular',
+        'thin',
+        'light',
+        'bold',
+        'fill',
+        'duotone',
+    ];
+
+    foreach ($phosphor_styles as $style) {
+        wp_enqueue_style(
+            'pediland-phosphor-' . $style,
+            sprintf('https://unpkg.com/@phosphor-icons/web@%1$s/src/%2$s/style.css', $phosphor_version, $style),
+            [],
+            $phosphor_version
+        );
+    }
+
     wp_enqueue_style(
         'pediland-font-google-sans-flex',
         'https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..700&display=swap',

@@ -17,18 +17,26 @@ function pediland_form_class_map(): array
 {
     return [
         'label' => 'mb-2 block text-sm font-medium text-slate-900',
+        'label-dark' => 'mb-2 block text-sm font-medium text-white',
+        'label-dark-compact' => 'text-xs font-medium uppercase tracking-wide text-slate-300',
         'input' => 'block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500',
+        'input-dark' => 'block w-full rounded-lg border border-slate-700 bg-slate-900 p-2.5 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500',
         'input-compact' => 'h-10 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500',
-        'input-quantity' => 'h-10 w-20 rounded-lg border border-slate-300 bg-slate-50 px-3 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500',
+        'input-quantity' => 'h-10 w-20 rounded-lg border border-slate-700 bg-slate-900 px-3 text-sm text-white focus:border-blue-500 focus:ring-blue-500',
+        'input-dark-compact' => 'block w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500',
         'select' => 'block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500',
-        'select-dark' => 'rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 focus:border-primary focus:ring-primary',
+        'select-dark' => 'block w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500',
         'textarea' => 'block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500',
+        'textarea-dark' => 'block w-full rounded-lg border border-slate-700 bg-slate-900 p-2.5 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500',
         'checkbox' => 'h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500',
+        'checkbox-dark' => 'h-4 w-4 rounded border-slate-700 bg-slate-900 text-blue-600 focus:ring-2 focus:ring-blue-500',
         'radio' => 'h-4 w-4 border-slate-300 text-blue-600 focus:ring-blue-500',
         'button-primary-full' => 'w-full rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300',
-        'button-dark-full' => 'w-full rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-slate-300',
+        'button-dark-full' => 'w-full rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300',
         'button-outline' => 'inline-flex h-10 items-center justify-center rounded-lg border border-slate-300 px-4 text-sm font-medium text-slate-700 hover:bg-slate-100',
-        'button-dark-compact' => 'inline-flex h-10 items-center justify-center rounded-lg bg-slate-900 px-5 text-sm font-medium text-white hover:bg-slate-800',
+        'button-primary-compact' => 'inline-flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-black hover:bg-secondary',
+        'button-outline-dark' => 'inline-flex h-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-900 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-blue-800',
+        'button-dark-compact' => 'inline-flex h-10 items-center justify-center rounded-lg bg-blue-700 px-5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300',
     ];
 }
 
@@ -65,18 +73,18 @@ function pediland_woocommerce_form_field_args(array $args, string $key, $value):
     $type = $args['type'] ?? 'text';
 
     if (in_array($type, ['select', 'state', 'country'], true)) {
-        $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('select'));
+        $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('select-dark'));
     } elseif ($type === 'textarea') {
-        $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('textarea'));
+        $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('textarea-dark'));
     } elseif ($type === 'checkbox') {
         $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('checkbox'));
     } elseif ($type === 'radio') {
         $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('radio'));
     } else {
-        $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('input'));
+        $args['input_class'] = array_merge($args['input_class'] ?? [], pediland_form_class_tokens('input-dark'));
     }
 
-    $args['label_class'] = array_merge($args['label_class'] ?? [], pediland_form_class_tokens('label'));
+    $args['label_class'] = array_merge($args['label_class'] ?? [], pediland_form_class_tokens('label-dark'));
 
     return $args;
 }

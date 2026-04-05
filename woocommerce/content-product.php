@@ -43,7 +43,7 @@ $hover_image_id = ! empty($gallery_image_ids) ? (int) $gallery_image_ids[0] : 0;
 
     <div class="flex flex-col p-4 pt-0 gap-2 text-center">
         <h2>
-            <a href="<?php the_permalink(); ?>" class="transition hover:text-primary text-lg font-light text-slate-500 leading-tight line-clamp-2">
+            <a href="<?php the_permalink(); ?>" class="transition hover:text-primary text-lg font-light text-slate-400 leading-tight line-clamp-2">
                 <?php echo esc_html(pediland_get_composite_product_name($product)); ?>
             </a>
         </h2>

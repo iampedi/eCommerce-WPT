@@ -18,7 +18,18 @@ get_header('shop');
 
         <div class="flex items-center justify-between mb-6">
             <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-                <h1 class="text-3xl light tracking-tight text-slate-100"><?php woocommerce_page_title(); ?></h1>
+                <h1 class="text-3xl leading-tight text-slate-100 flex items-center gap-4">
+                    <span><?php woocommerce_page_title(); ?></span>
+                    <button
+                        type="button"
+                        data-archive-filter-toggle
+                        aria-controls="archive-filters-panel"
+                        aria-expanded="false"
+                        class="inline-flex h-9 w-9 items-center justify-center rounded-md text-primary transition-colors duration-300 hover:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary/60"
+                        aria-label="<?php esc_attr_e('Toggle filters', 'pediland'); ?>">
+                        <i class="ph ph-faders animate-pulse"></i>
+                    </button>
+                </h1>
             <?php endif; ?>
 
             <?php
@@ -36,6 +47,8 @@ get_header('shop');
 
         <?php if (woocommerce_product_loop()) : ?>
             <section class="space-y-6">
+                <?php pediland_render_archive_filters(); ?>
+
                 <?php woocommerce_product_loop_start(); ?>
 
                 <?php while (have_posts()) : ?>
