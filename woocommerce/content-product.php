@@ -25,26 +25,22 @@ if (! $product || ! $product->is_visible()) {
         <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail', ['class' => 'aspect-square']); ?>
     </a>
 
-    <div class="flex flex-col p-4">
-        <div class="mb-4 text-center">
-            <?php $sku = $product->get_sku(); ?>
-            <h2 class="text-lg font-light text-slate-100">
-                <a href="<?php the_permalink(); ?>" class="transition hover:text-primary uppercase">
-                    <?php echo esc_html($sku ? sprintf(__('SKU: %s', 'pediland'), $sku) : __('SKU: N/A', 'pediland')); ?>
-                </a>
-            </h2>
+    <div class="flex flex-col p-4 pt-0 gap-2 text-center">
+        <h2>
+            <a href="<?php the_permalink(); ?>" class="transition hover:text-primary text-lg font-light text-slate-500 leading-tight line-clamp-2">
+                <?php echo esc_html(pediland_get_composite_product_name($product)); ?>
+            </a>
+        </h2>
 
-            <?php if (wc_review_ratings_enabled()) : ?>
-                <?php $rating_html = wc_get_rating_html($product->get_average_rating()); ?>
-                <?php if ($rating_html) : ?>
-                    <div class="text-sm text-amber-400"><?php echo wp_kses_post($rating_html); ?></div>
-                <?php endif; ?>
+        <?php if (wc_review_ratings_enabled()) : ?>
+            <?php $rating_html = wc_get_rating_html($product->get_average_rating()); ?>
+            <?php if ($rating_html) : ?>
+                <div class="text-sm text-amber-400"><?php echo wp_kses_post($rating_html); ?></div>
             <?php endif; ?>
+        <?php endif; ?>
 
-            <?php if ($price_html = $product->get_price_html()) : ?>
-                <p class="text-lg font-semibold text-secondary"><?php echo wp_kses_post($price_html); ?></p>
-            <?php endif; ?>
-        </div>
-
+        <?php if ($price_html = $product->get_price_html()) : ?>
+            <p class="text-lg font-semibold text-secondary"><?php echo wp_kses_post($price_html); ?></p>
+        <?php endif; ?>
     </div>
 </article>

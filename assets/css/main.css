@@ -1594,6 +1594,17 @@ body {
   margin-top: auto;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .block {
   display: block;
 }
@@ -1893,6 +1904,10 @@ body {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-1 {
+  gap: 0.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2293,6 +2308,10 @@ body {
   padding-top: 2rem;
 }
 
+.pt-0 {
+  padding-top: 0px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2378,6 +2397,14 @@ body {
 
 .leading-9 {
   line-height: 2.25rem;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-none {
+  line-height: 1;
 }
 
 .tracking-tight {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WooCommerce pagination template.
  *
@@ -33,8 +34,8 @@ if (empty($links)) {
     return;
 }
 ?>
-<nav class="woocommerce-pagination mt-8" aria-label="<?php esc_attr_e('Product Pagination', 'woocommerce'); ?>">
-    <ul class="inline-flex overflow-hidden rounded-lg border border-slate-800 bg-slate-950">
+<nav class="woocommerce-pagination mt-16 w-full flex justify-center" aria-label="<?php esc_attr_e('Product Pagination', 'woocommerce'); ?>">
+    <ul class="inline-flex overflow-hidden rounded-lg border border-slate-800 bg-slate-950 mx-auto">
         <?php foreach ($links as $link) : ?>
             <?php $is_current = str_contains($link, 'current'); ?>
             <li class="border-r border-slate-800 last:border-r-0">

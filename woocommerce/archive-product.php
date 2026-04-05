@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 get_header('shop');
 ?>
 <main class="_archive_product py-8">
-    <div class="container mx-auto max-w-7xl px-4">
+    <div class="container">
         <?php do_action('pediland_archive_before_content'); ?>
 
         <?php woocommerce_output_all_notices(); ?>
@@ -36,15 +36,6 @@ get_header('shop');
 
         <?php if (woocommerce_product_loop()) : ?>
             <section class="space-y-6">
-                <div class="flex flex-wrap items-center justify-between gap-4 rounded-lg border border-slate-800 bg-slate-950 p-4">
-                    <div class="text-sm text-slate-300">
-                        <?php woocommerce_result_count(); ?>
-                    </div>
-                    <div>
-                        <?php woocommerce_catalog_ordering(); ?>
-                    </div>
-                </div>
-
                 <?php woocommerce_product_loop_start(); ?>
 
                 <?php while (have_posts()) : ?>
@@ -54,8 +45,9 @@ get_header('shop');
 
                 <?php woocommerce_product_loop_end(); ?>
 
-                <?php woocommerce_pagination(); ?>
             </section>
+
+            <?php woocommerce_pagination(); ?>
         <?php else : ?>
             <?php wc_get_template('loop/no-products-found.php'); ?>
         <?php endif; ?>
