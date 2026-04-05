@@ -48,7 +48,7 @@ function pediland_filter_custom_logo(string $html): string
 
     return (string) preg_replace(
         '/class="custom-logo"/',
-        'class="custom-logo !h-12 w-auto"',
+        'class="custom-logo h-16 w-auto"',
         $html,
         1
     );

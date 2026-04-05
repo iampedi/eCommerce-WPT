@@ -18,7 +18,7 @@ $image_id = $product->get_image_id();
 $gallery_image_ids = $product->get_gallery_image_ids();
 $hover_image_id = ! empty($gallery_image_ids) ? (int) $gallery_image_ids[0] : 0;
 ?>
-<article class="flex h-full flex-col overflow-hidden group border border-transparent hover:border-primary duration-300">
+<article class="flex h-full flex-col overflow-hidden group border-2 border-slate-900/70 rounded-3xl hover:border-primary duration-300">
     <a href="<?php the_permalink(); ?>" class="relative block overflow-hidden bg-black card-flip">
         <?php if ($product->is_on_sale()) : ?>
             <span class="onsale absolute left-3 top-3 z-10 rounded-md bg-primary px-2 py-1 text-xs font-semibold text-black"><?php esc_html_e('Sale!', 'woocommerce'); ?></span>
