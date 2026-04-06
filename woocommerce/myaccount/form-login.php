@@ -59,7 +59,7 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                 </div>
 
                 <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
-                <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-primary-full')); ?>" name="login" value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
+                <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-default', pediland_form_class('button-size-md'))); ?>" name="login" value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
 
                 <?php do_action('woocommerce_login_form_end'); ?>
             </form>
@@ -113,7 +113,7 @@ $password_required = 'no' === get_option('woocommerce_registration_generate_pass
                     <?php do_action('woocommerce_register_form'); ?>
 
                     <?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-                    <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-dark-full')); ?>" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><?php esc_html_e('Register', 'woocommerce'); ?></button>
+                    <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-default', pediland_form_class('button-size-md', 'w-full'))); ?>" name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>"><?php esc_html_e('Register', 'woocommerce'); ?></button>
 
                     <?php do_action('woocommerce_register_form_end'); ?>
                 </form>

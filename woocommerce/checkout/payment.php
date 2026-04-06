@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Checkout payment section.
  *
@@ -11,8 +12,8 @@ if (! wp_doing_ajax()) {
     do_action('woocommerce_review_order_before_payment');
 }
 
-$update_totals_classes = pediland_form_class('button-outline', 'mt-3');
-$place_order_classes = pediland_form_class('button-primary-full', 'button alt');
+$update_totals_classes = pediland_form_class('button-payment-secondary', pediland_form_class('button-size-sm', 'mt-3'));
+$place_order_classes = pediland_form_class('button-payment-primary', 'button alt ' . pediland_form_class('button-size-md'));
 ?>
 <div id="payment" class="woocommerce-checkout-payment mt-6 space-y-4">
     <?php if (WC()->cart && WC()->cart->needs_payment()) : ?>

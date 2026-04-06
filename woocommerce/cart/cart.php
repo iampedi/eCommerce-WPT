@@ -137,11 +137,11 @@ do_action('woocommerce_before_cart');
                                     <div class="flex w-full max-w-md items-center gap-2">
                                         <label for="coupon_code" class="screen-reader-text"><?php esc_html_e('Coupon:', 'woocommerce'); ?></label>
                                         <input type="text" name="coupon_code" class="<?php echo esc_attr(pediland_form_class('input-compact')); ?>" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" />
-                                        <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-outline')); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply', 'woocommerce'); ?></button>
+                                        <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-outline-size-sm')); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply', 'woocommerce'); ?></button>
                                     </div>
                                 <?php endif; ?>
 
-                                <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-dark-compact')); ?>" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
+                                <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-default', pediland_form_class('button-size-sm'))); ?>" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
                             </div>
 
                             <?php do_action('woocommerce_cart_actions'); ?>

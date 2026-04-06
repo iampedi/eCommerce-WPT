@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 
 get_header('shop');
 ?>
-<main class="_archive_product py-8">
+<main class="_archive_product pt-4 pb-8">
     <div class="container">
         <?php do_action('pediland_archive_before_content'); ?>
 
@@ -25,7 +25,7 @@ get_header('shop');
                         data-archive-filter-toggle
                         aria-controls="archive-filters-panel"
                         aria-expanded="false"
-                        class="inline-flex h-9 w-9 items-center justify-center rounded-md text-primary transition-colors duration-300 hover:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary/60"
+                        class="<?php echo esc_attr(pediland_form_class('button-icon', pediland_form_class('button-icon-size-sm', 'text-primary focus:ring-primary/60'))); ?>"
                         aria-label="<?php esc_attr_e('Toggle filters', 'pediland'); ?>">
                         <i class="ph ph-faders animate-pulse"></i>
                     </button>

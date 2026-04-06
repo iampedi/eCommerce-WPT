@@ -1108,11 +1108,11 @@ function pediland_render_archive_filter_summary(bool $inside_filters = false): v
                <span class="sr-only"><?php esc_html_e('Remove filter', 'pediland'); ?></span>
             </a>
          <?php endforeach; ?>
-         <a href="<?php echo esc_url($action_url); ?>" class="<?php echo esc_attr(pediland_form_class('button-outline-dark', 'h-8 px-3 text-xs')); ?>">
+         <a href="<?php echo esc_url($action_url); ?>" class="<?php echo esc_attr(pediland_form_class('button-outline-size-xs')); ?>">
             <?php esc_html_e('Reset', 'pediland'); ?>
          </a>
          <?php if ($inside_filters) : ?>
-            <button type="button" data-filter-close data-reset-url="<?php echo esc_url($action_url); ?>" class="<?php echo esc_attr(pediland_form_class('button-outline-dark', 'h-8 px-3 text-xs')); ?>">
+            <button type="button" data-filter-close data-reset-url="<?php echo esc_url($action_url); ?>" class="<?php echo esc_attr(pediland_form_class('button-outline-size-xs')); ?>">
                <?php esc_html_e('Close', 'pediland'); ?>
             </button>
          <?php endif; ?>

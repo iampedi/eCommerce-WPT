@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lost password form
  *
@@ -27,7 +28,7 @@ do_action('woocommerce_before_lost_password_form');
             <input type="hidden" name="wc_reset_password" value="true" />
             <?php wp_nonce_field('lost_password', 'woocommerce-lost-password-nonce'); ?>
 
-            <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-primary-full')); ?>" value="<?php esc_attr_e('Reset password', 'woocommerce'); ?>"><?php esc_html_e('Reset password', 'woocommerce'); ?></button>
+            <button type="submit" class="<?php echo esc_attr(pediland_form_class('button-default', pediland_form_class('button-size-md'))); ?>" value="<?php esc_attr_e('Reset password', 'woocommerce'); ?>"><?php esc_html_e('Reset password', 'woocommerce'); ?></button>
         </form>
     </div>
 </div>
